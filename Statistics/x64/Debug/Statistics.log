@@ -1,0 +1,8 @@
+﻿  Source.cpp
+C:\Users\tjsch\Documents\College\2024Spring\Peer Mentor\Nonlinear Data Structures\Demos\Statistics\Statistics\statistics.h(76,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tjsch\Documents\College\2024Spring\Peer Mentor\Nonlinear Data Structures\Demos\Statistics\Statistics\Source.cpp(13,53): message : see reference to function template instantiation 'double Statistics::P_AunionB<std::string>(std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>)' being compiled
+C:\Users\tjsch\Documents\College\2024Spring\Peer Mentor\Nonlinear Data Structures\Demos\Statistics\Statistics\statistics.h(45,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tjsch\Documents\College\2024Spring\Peer Mentor\Nonlinear Data Structures\Demos\Statistics\Statistics\Source.cpp(14,56): message : see reference to function template instantiation 'double Statistics::P_AintersectB<std::string>(std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>)' being compiled
+  statistics.cpp
+  Generating Code...
+  Statistics.vcxproj -> C:\Users\tjsch\Documents\College\2024Spring\Peer Mentor\Nonlinear Data Structures\Demos\Statistics\x64\Debug\Statistics.exe
