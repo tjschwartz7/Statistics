@@ -11,6 +11,16 @@ class Statistics
 public:
 
 
+	vector<double> Convert_PDFtoCDF(vector<double> pdf);
+	double ExpectedValue_Nth(vector<double> pdf);
+	double ExpectedValue_Nth(vector<double> pdf, int moment);
+	double Variance(vector<double> pdf);
+	double StandardDeviation(vector<double> pdf);
+	double GeometricDistribution(int k, double p);
+	double BinomialDistribution(int n, int k, double p);
+	double Combination(int n, int k);
+
+
 	template<typename T>
 	double P_AgivenB(std::set<T> A, std::set<T> B, std::set<T> S)
 	{
@@ -97,85 +107,24 @@ public:
 		return p_AunionB;
 	}
 
-	vector<double> Convert_PDFtoCDF(vector<double> pdf)
+	template<typename T>
+	bool isIndependent(std::set<T> A, std::set<T> B, std::set<T> S)
 	{
-		//Summation of inputs must add to one
-		//We use a vector because *order matters*
-		std::vector<double> cdf;
-		double sum = 0;
-
-		//We use the iterator for debugging only
-		int iter = 0;
-		for (double i : pdf)
-		{
-			//Keep current count
-			sum += i;
-			//Push the new count to the back
-			cdf.push_back(sum);
-
-#ifdef DEBUG
-			cout << "F(" << iter << ") = " << sum << endl;
-#endif
-
-			//Debug
-			iter++;
-		}
-		//Invalid pdf - should sum to 1
-		if (cdf.back() != 1)
-		{
-			cout << "PDF was invalid: final sum was " << cdf.back() << endl;
-			return {};
-		}
-
-		//Fin
-		return cdf;
+		double p_AunionB = P_AunionB(A, B, S);
+		double p_A = P_A(A, S);
+		double p_B = P_A(B, S);
+		double p_AB = p_A * p_B;
+		bool isIndependent = p_AunionB == p_AB;
+		return isIndependent;
 	}
 
-
-	double ExpectedValue_Nth(vector<double> pdf)
+	template<typename T>
+	bool isMutuallyExclusive(std::set<T> A, std::set<T> B)
 	{
-		double sum = 0;
-		for (int i = 0; i < pdf.size(); i++)
-		{
-			//kP(x=k)
-			sum += i * pdf.at(i);
-		}
-		return sum;
+		//TODO: Write a program that returns the magnitude of the intersect and union sets
+		//Or, even better, create a class that lets you perform set functions.
 	}
-
-	double ExpectedValue_Nth(vector<double> pdf, int moment)
-	{
-		double sum = 0;
-		for (int i = 0; i < pdf.size(); i++)
-		{
-			//kP(x=k)
-			sum += pow(i, moment) * pdf.at(i);
-		}
-		return sum;
-	}
-
-	double Variance(vector<double> pdf)
-	{
-		//E[x]
-		double e_x = ExpectedValue_Nth(pdf);
-
-		//E[x^2]
-		double e_x2 = ExpectedValue_Nth(pdf, 2);
-
-		//E[x^2] - (E[x])^2
-		double variance = e_x2 - (e_x * e_x);
-		return variance;
-	}
-
-	double StandardDeviation(vector<double> pdf)
-	{
-		double variance = Variance(pdf);
-
-		//stdev = sqrt(variance)
-		//or, variance is stdev^2
-		double stdev = sqrt(variance);
-		return stdev;
-	}
+	
 
 private:
 };
