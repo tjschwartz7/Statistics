@@ -1,9 +1,5 @@
 #pragma once
-#include <iostream>
-#include <set>
-#include <vector>
-#include <math.h>
-using namespace std;
+#include "includes.h"
 #define DEBUG 1
 
 class Statistics
@@ -89,7 +85,6 @@ public:
 		int unionMagnitude = 0;
 		for (T a : A)
 		{
-
 			//a is a member of our union; increment union magnitude
 			unionMagnitude++;
 
@@ -108,7 +103,7 @@ public:
 	}
 
 	template<typename T>
-	bool isIndependent(std::set<T> A, std::set<T> B, std::set<T> S)
+	bool IsIndependent(std::set<T> A, std::set<T> B, std::set<T> S)
 	{
 		double p_AunionB = P_AunionB(A, B, S);
 		double p_A = P_A(A, S);
@@ -119,10 +114,24 @@ public:
 	}
 
 	template<typename T>
-	bool isMutuallyExclusive(std::set<T> A, std::set<T> B)
+	bool IsMutuallyExclusive(std::set<T> A, std::set<T> B)
 	{
-		//TODO: Write a program that returns the magnitude of the intersect and union sets
-		//Or, even better, create a class that lets you perform set functions.
+		std::set<T> temp;
+		//Perform the intersect; if magnitude is zero, its mutually exclusive
+		//For each item in relation
+		for (T a : A)
+		{
+			//If B does not contain item
+			if (B.count(a))
+			{
+				temp.emplace(a);
+			}
+		}
+
+		//If A is empty, then A and B had nothing in common
+		//Hence, it must be mutually exclusive.
+		bool isMutuallyExclusive = (temp.size() == 0);
+		return isMutuallyExclusive;
 	}
 	
 
