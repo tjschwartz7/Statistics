@@ -1,9 +1,2 @@
-﻿  Source.cpp
-C:\Users\tjsch\source\repos\Statistics\Statistics\statistics.h(82,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\tjsch\source\repos\Statistics\Statistics\Source.cpp(13,53): message : see reference to function template instantiation 'double Statistics::P_AunionB<std::string>(std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>)' being compiled
-C:\Users\tjsch\source\repos\Statistics\Statistics\statistics.h(51,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\tjsch\source\repos\Statistics\Statistics\Source.cpp(14,56): message : see reference to function template instantiation 'double Statistics::P_AintersectB<std::string>(std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>,std::set<std::string,std::less<std::string>,std::allocator<std::string>>)' being compiled
-  relation.cpp
-  statistics.cpp
-  Generating Code...
+﻿  statistics.cpp
   Statistics.vcxproj -> C:\Users\tjsch\source\repos\Statistics\x64\Debug\Statistics.exe

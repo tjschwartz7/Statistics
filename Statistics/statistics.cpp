@@ -1,4 +1,5 @@
 #include "statistics.h"
+#include <cmath>
 
 vector<double> Statistics::Convert_PDFtoCDF(vector<double> pdf)
 {
@@ -99,6 +100,12 @@ double Statistics::BinomialDistribution(int n, int k, double p)
 	return pr_m;
 }
 
+/// <summary>
+/// Returns n choose k
+/// </summary>
+/// <param name="n">things taken</param>
+/// <param name="k">at a time.</param>
+/// <returns>n choose k</returns>
 double Statistics::Combination(int n, int k)
 {
 	//We will inevitably need these variables to be doubles;
@@ -120,4 +127,31 @@ double Statistics::Combination(int n, int k)
 	double sum = numerator / (double)denominator;
 	return sum;
 
+}
+
+/// <summary>
+/// Takes an integer n and returns n!.
+/// </summary>
+/// <param name="n">An integer</param>
+/// <returns>Factorial of n.</returns>
+int Statistics::Factorial(int n)
+{
+	int sum = 1;
+	for (int i = n; i > 0; i--) sum *= i;
+	return sum;
+}
+
+/// <summary>
+/// Poisson is the limit of the binomial theorem as the number of trials approaches infinity. 
+/// Because the binomial theorem gets more accurate as n gets larger, Poisson takes the limit at infinity of n.
+/// This function just plugs in user arguments into the equation.
+/// </summary>
+/// <param name="lambda">Traffic per unit time.</param>
+/// <param name="k">k objects pass per unit time.</param>
+/// <returns>The probability that less than k objects pass per unit time.</returns>
+double Statistics::PoissonProcess(double lambda, int k)
+{
+	int k_fact = Factorial(k);
+	double pr_m = (pow(lambda, k) / k_fact)*(std::exp(lambda*-1));
+	return pr_m;
 }

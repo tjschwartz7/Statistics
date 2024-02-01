@@ -15,6 +15,8 @@ public:
 	double GeometricDistribution(int k, double p);
 	double BinomialDistribution(int n, int k, double p);
 	double Combination(int n, int k);
+	int Factorial(int n);
+	double PoissonProcess(double lambda, int k);
 
 
 	template<typename T>
@@ -133,6 +135,7 @@ public:
 		bool isMutuallyExclusive = (temp.size() == 0);
 		return isMutuallyExclusive;
 	}
+
 	
 
 private:

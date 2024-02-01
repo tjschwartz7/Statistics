@@ -28,5 +28,7 @@ int main()
 
 	cout << "Geometric probability = " << st.GeometricDistribution(2, .25) << endl;
 	cout << "Binomial probability = " << st.BinomialDistribution(5, 3, .50) << endl;
-
+	cout << "Poisson process: " << st.PoissonProcess(9, 5) << endl;
+	cout << "5! = " << st.Factorial(5) << endl;
+	cout << "11! = " << st.Factorial(11) << endl;
 }
